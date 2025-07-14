@@ -1,0 +1,720 @@
+<!-- Conteúdo ATUALIZADO e SEGURO para o seu index.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoxRoot | Especialista em Segurança Ofensiva</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (para ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+         :root {
+            --bg-dark: #0f172a;
+            --bg-light: #1e293b;
+            --primary-color: #0ea5e9;
+            --text-color: #f8fafc;
+            --text-secondary: #94a3b8;
+            --primary-shadow: #0b8acb;
+            /* Sombra para o botão */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+        
+        .section-title span {
+            color: var(--primary-color);
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: transparent;
+            z-index: 1000;
+            transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a {
+            color: var(--text-color);
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+        
+        section {
+            padding: 120px 0;
+        }
+        /* Seção Home */
+        
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-dark);
+        }
+        
+        .home-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        
+        .home-text {
+            flex-basis: 55%;
+        }
+        
+        .home-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+        
+        .home-text h2 span {
+            color: var(--primary-color);
+        }
+        
+        .home-text p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 20px 0 30px;
+        }
+        
+        .home-buttons .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn.btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn.btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn.btn-primary:hover {
+            transform: scale(1.05);
+        }
+        
+        .btn.btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn.btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .home-socials {
+            margin-top: 40px;
+        }
+        
+        .home-socials a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            margin-right: 20px;
+            border: 2px solid var(--bg-light);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .home-socials a:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+        
+        .home-image {
+            flex-basis: 45%;
+            text-align: center;
+        }
+        
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+        .home-image img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            -webkit-mask-image: radial-gradient(circle, black 65%, transparent 85%);
+            mask-image: radial-gradient(circle, black 65%, transparent 85%);
+            filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.5));
+            animation: floatAnimation 6s ease-in-out infinite;
+        }
+        /* Seção About */
+        
+        #about {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('avatar.png');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(30, 41, 59, 0.5);
+            padding: 50px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .about-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .about-content .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .about-content .btn:hover {
+            transform: scale(1.05);
+        }
+        /* Outras seções */
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .grid-item {
+            background-color: var(--bg-light);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .grid-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .grid-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .grid-item ul {
+            padding-left: 20px;
+        }
+        
+        .grid-item li {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        #achievements {
+            background-color: var(--bg-light);
+        }
+        
+        .achievement-card {
+            background-color: var(--bg-dark);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border: 1px solid #2e3b4e;
+            transition: transform 0.3s ease;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .achievement-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .achievement-card .tag {
+            display: inline-block;
+            background-color: #2e3b4e;
+            color: var(--text-secondary);
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Estilos para Animação do Prédio */
+        
+        .building-section {
+            padding: 0;
+            background-color: #000;
+            position: relative;
+        }
+        
+        .building-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-image: linear-gradient(to bottom, var(--bg-light), transparent);
+            z-index: 5;
+        }
+        
+        #bg_city {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        #bg_city svg {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+        }
+        /* NOVO: Estilo para a seção do botão */
+        
+        .contact-button-section {
+            padding: 80px 20px;
+            background-color: #000;
+            /* Fundo preto para se misturar com o rodapé */
+            text-align: center;
+        }
+        /* NOVO: Estilo para o botão 3D */
+        
+        .btn-3d {
+            display: inline-block;
+            padding: 18px 35px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            background-color: var(--primary-color);
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 6px 0 var(--primary-shadow);
+            transition: all 0.1s ease-in-out;
+        }
+        
+        .btn-3d:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 var(--primary-shadow);
+        }
+        
+        .btn-3d:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 var(--primary-shadow);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            color: var(--text-secondary);
+            background-color: #000;
+        }
+        
+        @media (max-width: 992px) {
+            .home-content {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 100px;
+            }
+            .home-text {
+                order: 2;
+            }
+            .home-image {
+                order: 1;
+                margin-bottom: 40px;
+                width: 70%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="container navbar">
+            <a href="#" class="logo">NoxRoot<span>.</span></a>
+            <nav class="nav-links">
+                <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#certifications">Certifications</a><a href="#skills">Skills</a><a href="#achievements">Achievements</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container home-content">
+                <div class="home-text">
+                    <h2>Especialista em<br><span>Segurança Ofensiva</span></h2>
+                    <p>Performance comprovada em ambientes extremos, dominando laboratórios de dificuldade INSANE e CTFs militares de elite — incluindo desafios utilizados pela Marinha dos EUA e pela NSA. Atuo com maestria em exploração de vulnerabilidades,
+                        escalonamento de privilégios, evasão de defesas e simulações táticas reais.</p>
+                    <div class="home-buttons"><a href="#achievements" class="btn btn-primary">Conquistas</a><a href="#" class="btn btn-secondary">Let's Talk</a></div>
+                    <div class="home-socials"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div>
+                </div>
+                <div class="home-image"><img src="avatar.png" alt="Avatar de NoxRoot"></div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="about-content">
+                    <h2 class="section-title" style="margin-bottom: 20px;">About <span>Me</span></h2>
+                    <h3>Hacker & Developer!</h3>
+                    <p>Domino tanto a exploração de vulnerabilidades, escalonamento de privilégios e evasão de defesas, quanto a construção de sistemas completos com múltiplas linguagens de programação. Possuo profundo conhecimento prático em Python, C,
+                        C#, JavaScript, Rust, Bash, PHP, Node.js, ReactJS, HTML5, CSS3, Express.js e MongoDB/MySQL.</p><a href="#" class="btn">Read More</a></div>
+            </div>
+        </section>
+
+        <section id="certifications" class="fade-in-section">
+            <div class="container">
+                <h2 class="section-title">🎓 Certificações & <span>Cursos</span></h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3>Cyber Security</h3>
+                        <ul>
+                            <li>Pentest Profissional Híbrido – CYSOURCE</li>
+                            <li>Analista de SOC Híbrido – CYSOURCE</li>
+                            <li>Pentest do Zero ao Profissional (SYCP)</li>
+                            <li>Análise Forense de Sistemas – CLAVIS</li>
+                            <li>Pentest e Análise Profunda – PATO Academy</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Desenvolvimento & Exploit Dev</h3>
+                        <ul>
+                            <li>C# Completo</li>
+                            <li>Python Avançado</li>
+                            <li>JavaScript Avançado</li>
+                            <li>Banco de Dados (MySQL & PHP)</li>
+                            <li>Formação MERN Stack</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Design & Multimídia</h3>
+                        <ul>
+                            <li>ReactJS / HTML / CSS / UX Design</li>
+                            <li>Edição Avançada com After Effects</li>
+                            <li>Edição Avançada com Photoshop</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="fade-in-section" style="background-color: var(--bg-light);">
+            <div class="container">
+                <h2 class="section-title">🛠️ Stack de Ataque & <span>Ferramentas</span></h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3>OSINT & Recon</h3>
+                        <ul>
+                            <li>Amass, SpiderFoot</li>
+                            <li>Shodan, Nuclei</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Exploitation</h3>
+                        <ul>
+                            <li>Metasploit, SQLMap</li>
+                            <li>Exploit Dev em C, Python, Bash</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Web Pentest</h3>
+                        <ul>
+                            <li>Burp Suite, ZAP, OWASP Top 10</li>
+                            <li>SSRF, RCE, LFI</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Privilégio & Persistência</h3>
+                        <ul>
+                            <li>LinPEAS, WinPEAS</li>
+                            <li>PowerShell, Cradle, Pivoting</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>C2 & Evasão</h3>
+                        <ul>
+                            <li>Sliver, Covenant</li>
+                            <li>Obfuscation, Payload Crafting</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Blue Team & Ambientes</h3>
+                        <ul>
+                            <li>Wireshark, Suricata, SIEM</li>
+                            <li>Kali Linux, Parrot, Docker</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="fade-in-section">
+            <div class="container">
+                <h2 class="section-title">🏆 Conquistas & <span>Missões</span></h2>
+                <div class="achievement-card">
+                    <h3>CCT2019 – U.S. TENTH FLEET / MARINHA DOS EUA</h3><span class="tag">DIFICULDADE: INSANE</span><span class="tag">⚔️ APENAS 10 NO MUNDO</span>
+                    <p>Resultado: Domínio absoluto. Quebrei um ambiente de guerra cibernética real, utilizado em treinamentos da Marinha dos EUA e da NSA.</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Exploração de Bypass Lógico no configuration.apple.com</h3><span class="tag">ALVO: APPLE</span><span class="tag">TIPO: BYPASS DE AUTENTICAÇÃO</span>
+                    <p>Técnica: manipulação da resposta JSON em `email_verified`, via requisições HTTP interceptadas, injetando `email_verified=true` mesmo sem posse do domínio válido.</p>
+                    <ul>
+                        <li>Criação de contas com email falsificado, mas verificado.</li>
+                        <li>Contorno de fluxos de autenticação OAuth/SSO.</li>
+                        <li>Potencial para uso em campanhas de APT.</li>
+                    </ul>
+                </div>
+                <div class="achievement-card">
+                    <h3>TryHackMe – Labs de Nível INSANE</h3><span class="tag">AMBIENTE: NO MAP ZONE</span><span class="tag">FOCO: RED TEAM MILITAR</span>
+                    <p>Domínio completo de múltiplos labs extremos, incluindo "You’re in a cave". Foco em privesc, buffer overflows, shell reverso e evasão em ambientes sem mapa, sem luz e sem espaço para erro.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="building-section">
+            <div id="bg_city"></div>
+        </section>
+    </main>
+
+    <!-- NOVO: Seção para o botão 3D -->
+    <section class="contact-button-section">
+        <a href="contact.html" class="btn-3d">VER MAIS PROJETOS</a>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Copyright © 2023 by NoxRoot | All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica do Header e Navegação
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            window.scrollY > 50 ? header.classList.add('scrolled') : header.classList.remove('scrolled');
+        });
+        const sections = document.querySelectorAll('main section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                if (section.id) {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.id;
+                    }
+                }
+            });
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === `#${current}`) {
+                    a.classList.add('active');
+                }
+            });
+        });
+
+        // Animação de Fade-in para Seções
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        document.querySelectorAll('.fade-in-section').forEach((section) => observer.observe(section));
+
+        // Animação do Prédio SVG
+        function loadSVG() {
+            fetch("city.svg")
+                .then(response => response.ok ? response.text() : Promise.reject('SVG not found'))
+                .then(svg => {
+                    const bgCityDiv = document.getElementById('bg_city');
+                    if (bgCityDiv) {
+                        bgCityDiv.innerHTML = svg;
+                        if (bgCityDiv.querySelector('svg')) {
+                            bgCityDiv.querySelector('svg').setAttribute("preserveAspectRatio", "xMidYMid slice");
+                            setAnimationScroll();
+                        }
+                    }
+                }).catch(error => console.error('Erro ao carregar o city.svg:', error));
+        }
+
+        function setAnimationScroll() {
+            gsap.registerPlugin(ScrollTrigger);
+            let runAnimation = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".building-section",
+                    start: "top top",
+                    end: "+=2500",
+                    scrub: 1.5,
+                    pin: true
+                }
+            });
+            runAnimation.add([gsap.to("#bg_city svg", {
+                    scale: 1.5
+                }), gsap.to("#full_city", {
+                    opacity: 0
+                })])
+                .add([gsap.to("#building_top", {
+                    y: -200,
+                    opacity: 0
+                }), gsap.to("#wall_side", {
+                    x: -200,
+                    opacity: 0
+                }), gsap.to("#wall_front", {
+                    x: 200,
+                    y: 200,
+                    opacity: 0
+                })])
+                .add([gsap.to("#interior_wall_side", {
+                    x: -200,
+                    opacity: 0
+                }), gsap.to("#interior_wall_top", {
+                    y: -200,
+                    opacity: 0
+                }), gsap.to("#interior_wall_side_2", {
+                    opacity: 0
+                }), gsap.to("#interior_wall_front", {
+                    opacity: 0
+                })]);
+        }
+        document.addEventListener('DOMContentLoaded', loadSVG);
+    </script>
+</body>
+
+</html>

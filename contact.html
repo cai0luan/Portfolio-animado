@@ -1,0 +1,137 @@
+<!-- Conteúdo ATUALIZADO para contact.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos | NoxRoot</title>
+    <!-- Link para o CSS principal do seu site -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-color: var(--bg-dark);
+            text-align: center;
+        }
+        
+        .gallery-container {
+            padding: 150px 20px 50px;
+        }
+        
+        .gallery-title {
+            font-size: 3rem;
+            color: var(--text-color);
+            margin-bottom: 50px;
+        }
+        
+        .gallery-title span {
+            color: var(--primary-color);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .project-card {
+            background-color: var(--bg-light);
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: left;
+            border: 1px solid #2e3b4e;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            /* Necessário para a sobreposição */
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
+        }
+        
+        .project-card-content {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+            /* Garante que o texto fique sobre o fundo */
+        }
+        
+        .project-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+        
+        .project-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .project-card a {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .back-link-gallery {
+            display: inline-block;
+            margin-top: 60px;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        /* --- NOVO ESTILO PARA O FUNDO DO CARD --- */
+        
+        .card-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/stars-bg.jpg');
+            /* Caminho para a imagem */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            /* Opacidade para o fundo não ofuscar o texto */
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gallery-container">
+        <h1 class="gallery-title">Meus <span>Projetos</span></h1>
+
+        <div class="projects-grid">
+            <!-- Card do Projeto 1: Sala 3D -->
+            <div class="project-card">
+                <!-- APLICAÇÃO DO FUNDO AQUI -->
+                <div class="card-bg-overlay"></div>
+
+                <div class="project-card-content">
+                    <h3>Sala 3D com CSS</h3>
+                    <p>Uma sala isométrica interativa construída inteiramente com HTML e CSS, que reage ao movimento do mouse.</p>
+                    <a href="projects/room.html">Ver Projeto →</a>
+                </div>
+            </div>
+
+            <!-- Card para o Próximo Projeto -->
+            <div class="project-card">
+                <div class="project-card-content">
+                    <h3>Próximo Projeto</h3>
+                    <p>Um novo projeto complexo está a caminho. Aguarde!</p>
+                    <a href="#" style="color: var(--text-secondary); cursor: not-allowed;">Em Breve</a>
+                </div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link-gallery">Voltar para a Home</a>
+    </div>
+</body>
+
+</html>
