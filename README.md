@@ -21,7 +21,7 @@
 
 ### Visualização do Projeto
 <p align="center">
-  <img src="./preview.gif" alt="Demonstração do Portfólio Animado">
+  <img src="./preview.png" alt="Demonstração do Portfólio Animado">
 </p>
 
 ---
